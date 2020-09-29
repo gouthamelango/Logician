@@ -77,14 +77,18 @@ public class LevelAFragment extends Fragment {
         levelAAns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((GameActivity)getActivity()).cancelTimer();
                 new CountDownTimer(2000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
                         informAns.setImageResource(R.drawable.correct);
+
                     }
 
                     public void onFinish() {
                         informAns.setImageResource(0);
+                        ((GameActivity)getActivity()).levelCleared();
+
                     }
                 }.start();
             }

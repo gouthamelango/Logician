@@ -52,7 +52,6 @@
         android:id="@+id/inform"
         android:layout_width="fill_parent"
         android:layout_height="100dp"
-
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/calenderImg"
         android:visibility="visible" />

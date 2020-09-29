@@ -3,36 +3,60 @@ package com.example.logician;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.view.animation.Animation.RELATIVE_TO_SELF;
 
 public class GameActivity extends AppCompatActivity {
     String levelAlpha;
     TextView levelName;
     ImageView exitGame;
+    Dialog pauseDialog, scoreCard;
+    ImageView pauseGame,restartGame;
+
+    Boolean isPaused = false,isCancelled  = false;
+    int myProgress = 0;
+    ProgressBar progressBarView;
+    private String timeRemaining;
+    TextView tv_time;
+    CountDownTimer countDownTimer;
+    int progress;
+    int endTime = 60;
+
+    ImageView s1,s2,s3;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_game);
-        Intent intent = getIntent();
-        levelName = (TextView)findViewById(R.id.levelName);
-
-        exitGame = (ImageView)findViewById(R.id.exitGamePlay);
-        exitGame.setOnClickListener(new View.OnClickListener() {
+        pauseDialog = new Dialog(this);
+        scoreCard = new Dialog(this);
+        restartGame =  (ImageView)findViewById(R.id.replaybw) ;
+        //Restart Game
+        restartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
-                startActivity(season1LevelIntent);
+
             }
         });
-
+        //Load Game
+        Intent intent = getIntent();
+        levelName = (TextView)findViewById(R.id.levelName);
         if(intent.hasExtra("level"))
         {
-           levelAlpha  = getIntent().getExtras().getString("level");
+            levelAlpha  = getIntent().getExtras().getString("level");
 
         }
         if(levelAlpha.equals("levelA")){
@@ -49,12 +73,348 @@ public class GameActivity extends AppCompatActivity {
 
             levelName.setText("Level B");
 
-           /* FragmentTransaction levelAFragmentTransaction  =getSupportFragmentManager().beginTransaction();
-            LevelAFragment levelAFragment = new LevelAFragment();
-            levelAFragmentTransaction.replace(R.id.gameLayoutContainer,levelAFragment);
-            levelAFragmentTransaction.commit();*/
+            FragmentTransaction levelBFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelBFragment levelBFragment = new LevelBFragment();
+            levelBFragmentTransaction.replace(R.id.gameLayoutContainer,levelBFragment);
+            levelBFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelC")){
+
+            levelName.setText("Level C");
+
+            FragmentTransaction levelCFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelCFragment levelCFragment = new LevelCFragment();
+            levelCFragmentTransaction.replace(R.id.gameLayoutContainer,levelCFragment);
+            levelCFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelD")){
+
+            levelName.setText("Level D");
+
+            FragmentTransaction levelDFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelDFragment levelDFragment = new LevelDFragment();
+            levelDFragmentTransaction.replace(R.id.gameLayoutContainer,levelDFragment);
+            levelDFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelE")){
+
+            levelName.setText("Level E");
+
+            FragmentTransaction levelEFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelEFragment levelEFragment = new LevelEFragment();
+            levelEFragmentTransaction.replace(R.id.gameLayoutContainer,levelEFragment);
+            levelEFragmentTransaction.commit();
 
         }
 
+
+
+
+
+        //Pause Game
+       pauseGame  =  (ImageView)findViewById(R.id.pauseGamePlay);
+        pauseGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView close;
+                isPaused = true;
+                pauseDialog.setCancelable(false);
+
+                pauseDialog.setContentView(R.layout.pausegame_popup);
+
+                close = (ImageView) pauseDialog.findViewById(R.id.pauseToPlay);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pauseDialog.dismiss();
+                        isPaused = false;
+                        resume_countdown();
+                    }
+                });
+
+                ImageView restartBtn;
+                restartBtn =  (ImageView)pauseDialog.findViewById(R.id.restart);
+                restartBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pauseDialog.dismiss();
+                        isPaused = false;
+                        fn_countdown();
+                    }
+                });
+
+                ImageView returnHomeBtn;
+                returnHomeBtn =  (ImageView)pauseDialog.findViewById(R.id.returnHome);
+                returnHomeBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent HomeActivityIntent  = new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(HomeActivityIntent);
+                    }
+                });
+
+                pauseDialog.show();
+            }
+        });
+
+        //Exit Game
+        exitGame = (ImageView)findViewById(R.id.exitGamePlay);
+        exitGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
+                startActivity(season1LevelIntent);
+            }
+        });
+
+
+
+        progressBarView = (ProgressBar) findViewById(R.id.view_progress_bar);
+        tv_time= (TextView)findViewById(R.id.tv_timer);
+        /*Animation*/
+        RotateAnimation makeVertical = new RotateAnimation(0, -90, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f);
+        makeVertical.setFillAfter(true);
+        progressBarView.startAnimation(makeVertical);
+        progressBarView.setSecondaryProgress(endTime);
+        progressBarView.setProgress(0);
+
+        fn_countdown();
+
+
     }
+
+
+    private void fn_countdown() {
+            myProgress = 0;
+            String timeInterval = "60";
+            progress = 1;
+            endTime = Integer.parseInt(timeInterval); // up to finish time
+            countDownTimer = new CountDownTimer(endTime * 1000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    if(isPaused||isCancelled){
+                        cancel();
+                    }
+                    else {
+                        setProgress(progress, endTime);
+                        progress = progress + 1;
+                        int seconds = (int) (millisUntilFinished / 1000) % 60;
+                       // int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
+                        String newtime =String.valueOf(seconds);
+                        tv_time.setText(newtime);
+                        timeRemaining = String.valueOf(seconds);
+                    }
+                }
+                @Override
+                public void onFinish() {
+                    setProgress(progress, endTime);
+                    timeUp();
+                }
+            };
+            countDownTimer.start();
+    }
+
+    private void resume_countdown() {
+        String timeInterval = timeRemaining;
+        endTime = Integer.parseInt(timeInterval); // up to finish time
+        countDownTimer = new CountDownTimer(endTime * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if(isPaused){
+                    cancel();
+                }
+                else {
+                    setProgress(progress, endTime);
+                    progress = progress + 1;
+                    int seconds = (int) (millisUntilFinished / 1000) % 60;
+                    int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
+                    String newtime =String.valueOf(seconds);
+                    tv_time.setText(newtime);
+                    timeRemaining = String.valueOf(seconds);
+                }
+            }
+            @Override
+            public void onFinish() {
+                setProgress(progress, endTime);
+                timeUp();
+            }
+        };
+        countDownTimer.start();
+    }
+
+    public void setProgress(int startTime, int endTime) {
+        progressBarView.setMax(endTime);
+        progressBarView.setSecondaryProgress(endTime);
+        progressBarView.setProgress(startTime);
+
+    }
+    public void cancelTimer(){
+        isCancelled=true;
+    }
+
+    public void timeUp(){
+      //  ImageView close;
+        scoreCard.setCancelable(false);
+        isPaused = true;
+        scoreCard.setContentView(R.layout.scorecard_popup);
+        s1 = (ImageView)scoreCard.findViewById(R.id.starImg1);
+        s2 = (ImageView)scoreCard.findViewById(R.id.starImg2);
+        s3 = (ImageView)scoreCard.findViewById(R.id.starImg3);
+        int completedTime  = Integer.parseInt(timeRemaining);
+        if(completedTime==0){
+            s1.setImageResource(R.drawable.emptystar);
+            s2.setImageResource(R.drawable.emptystar);
+            s3.setImageResource(R.drawable.emptystar);
+        }
+
+        TextView popupTitle;
+        popupTitle = (TextView)scoreCard.findViewById(R.id.scoreCardTitle);
+        popupTitle.setText("Time Up!");
+
+        ImageView timeUpImg;
+        timeUpImg = (ImageView)scoreCard.findViewById(R.id.treasureImg);
+        timeUpImg.setImageResource(R.drawable.timeup);
+
+        ImageView nextBtn;
+        nextBtn =  (ImageView)scoreCard.findViewById(R.id.nextLevel);
+        nextBtn.setVisibility(View.INVISIBLE);
+
+        ImageView restartBtn;
+        restartBtn =  (ImageView)scoreCard.findViewById(R.id.restart);
+        restartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scoreCard.dismiss();
+                isPaused = false;
+                isCancelled = false;
+                fn_countdown();
+            }
+        });
+
+        ImageView returnHomeBtn;
+        returnHomeBtn =  (ImageView)scoreCard.findViewById(R.id.returnHome);
+        returnHomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
+                startActivity(season1LevelIntent);
+            }
+        });
+
+        scoreCard.show();
+
+
+    }
+
+    public  void levelCleared(){
+
+        ImageView close;
+        scoreCard.setCancelable(false);
+        isPaused = true;
+        scoreCard.setContentView(R.layout.scorecard_popup);
+
+        s1 = (ImageView)scoreCard.findViewById(R.id.starImg1);
+        s2 = (ImageView)scoreCard.findViewById(R.id.starImg2);
+        s3 = (ImageView)scoreCard.findViewById(R.id.starImg3);
+
+        int completedTime  = Integer.parseInt(timeRemaining);
+        if(completedTime>=50){
+            s1.setImageResource(R.drawable.fullstar);
+            s2.setImageResource(R.drawable.fullstar);
+            s3.setImageResource(R.drawable.fullstar);
+
+        }
+        if((completedTime>=45)&&(completedTime<50)){
+            s1.setImageResource(R.drawable.fullstar);
+            s2.setImageResource(R.drawable.fullstar);
+            s3.setImageResource(R.drawable.halfstar);
+
+        }
+        if((completedTime>=40)&&(completedTime<45)){
+            s1.setImageResource(R.drawable.fullstar);
+            s2.setImageResource(R.drawable.fullstar);
+            s3.setImageResource(R.drawable.emptystar);
+        }
+        if((completedTime>=30)&&(completedTime<40)){
+            s1.setImageResource(R.drawable.fullstar);
+            s2.setImageResource(R.drawable.halfstar);
+            s3.setImageResource(R.drawable.emptystar);
+        }
+        if(completedTime<30){
+            s1.setImageResource(R.drawable.fullstar);
+            s2.setImageResource(R.drawable.emptystar);
+            s3.setImageResource(R.drawable.emptystar);
+        }
+
+        ImageView nextBtn;
+        nextBtn =  (ImageView)scoreCard.findViewById(R.id.nextLevel);
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(levelAlpha.equals("levelA")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelB");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelB")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelC");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelC")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelD");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelD")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelE");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelE")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelF");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+
+            }
+        });
+
+        ImageView restartBtn;
+        restartBtn =  (ImageView)scoreCard.findViewById(R.id.restart);
+        restartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scoreCard.dismiss();
+                isPaused = false;
+                isCancelled = false;
+                fn_countdown();
+            }
+        });
+
+        ImageView returnHomeBtn;
+        returnHomeBtn =  (ImageView)scoreCard.findViewById(R.id.returnHome);
+        returnHomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
+                startActivity(season1LevelIntent);
+            }
+        });
+
+       scoreCard.show();
+
+    }
+
+
+
+
 }

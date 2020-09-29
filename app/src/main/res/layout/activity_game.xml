@@ -13,12 +13,12 @@
         android:background="@drawable/underlinestyle"
         android:id="@+id/gameActionBar">
 0
+
         <ImageView
+            android:id="@+id/exitGamePlay"
             android:layout_width="56dp"
             android:layout_height="match_parent"
-            android:src="@drawable/circled_left"
-            android:id="@+id/exitGamePlay"
-            />
+            android:src="@drawable/circled_left" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -47,13 +47,48 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/upperlinestyle">
+
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/hint"
+            android:id="@+id/hint"
+            android:layout_marginLeft="50dp"/>
+        <ImageView
+            android:id="@+id/replaybw"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:src="@drawable/replaybw"
+           />
+        <ProgressBar
+            android:id="@+id/view_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:progressDrawable="@drawable/circular_progress_bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_timer"
+            android:text="90"
+            android:layout_centerInParent="true"
+            />
 
 
 

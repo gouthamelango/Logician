@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:fontFamily="@font/chewy"
-            android:text="Scenario 1"
+            android:text="Riddles"
             android:textSize="30sp"
             android:gravity="center"
             android:layout_centerHorizontal="true"/>
@@ -41,95 +41,315 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/layoutSeason1LevelRow1"
+
                 android:layout_margin="25dp">
                 <RelativeLayout
                     android:layout_width="120dp"
                     android:layout_height="100dp"
+                    android:background="@drawable/popupborder"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+
                     android:id="@+id/layoutSeason1LevelA">
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Level 1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="Level A"
                         android:gravity="center"
+
+                        android:id="@+id/levelALabel"
                         android:textSize="20sp"
                         android:fontFamily="@font/chewy"/>
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/levelALabel">
+                       <ImageView
+                           android:layout_width="35dp"
+                           android:layout_height="35dp"
+                           android:layout_alignParentLeft="true"
+                           android:id="@+id/levelAStar1"
+                           android:layout_margin="2dp"
+                           />
+                       <ImageView
+                           android:layout_width="35dp"
+                           android:layout_height="35dp"
+                           android:layout_centerInParent="true"
+                           android:id="@+id/levelAStar2"
+                           android:layout_margin="2dp"
+                           />
+                       <ImageView
+                           android:layout_width="35dp"
+                           android:layout_height="35dp"
+                           android:layout_alignParentRight="true"
+                           android:layout_margin="2dp"
+                           android:id="@+id/levelAStar3"
+                           />
+                   </RelativeLayout>
+
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
                     android:id="@+id/layoutSeason1LevelB"
-                    android:layout_toRightOf="@+id/layoutSeason1LevelA">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Level 2"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/chewy"/>
-                </RelativeLayout>
-                <RelativeLayout
                     android:layout_width="120dp"
                     android:layout_height="100dp"
-                    android:id="@+id/layoutSeason1LevelC"
-                    android:layout_toRightOf="@+id/layoutSeason1LevelB">
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toRightOf="@id/layoutSeason1LevelA"
+                    android:background="@drawable/popupborder"
+                    android:padding="10dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
                         android:fontFamily="@font/chewy"
                         android:gravity="center"
-                        android:text="Level 3"
+                        android:id="@+id/levelBLabel"
+                        android:text="Level B"
                         android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/levelBLabel">
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:id="@+id/levelBStar1"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/levelBStar2"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="2dp"
+                            android:id="@+id/levelBStar3"
+                            />
+                    </RelativeLayout>
                 </RelativeLayout>
-
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/layoutSeason1LevelRow2"
                 android:layout_below="@id/layoutSeason1LevelRow1"
                 android:layout_margin="25dp">
                 <RelativeLayout
                     android:layout_width="120dp"
                     android:layout_height="100dp"
-                    android:id="@+id/layoutSeason1LevelD">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Level 4"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/chewy"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/layoutSeason1LevelE"
-                    android:layout_toRightOf="@+id/layoutSeason1LevelD">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Level 5"
-                        android:gravity="center"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/chewy"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/layoutSeason1LevelF"
-                    android:layout_toRightOf="@+id/layoutSeason1LevelE">
+                    android:id="@+id/layoutSeason1LevelC"
+                    android:background="@drawable/popupborder"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentLeft="true">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/levelCLabel"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/chewy"
                         android:gravity="center"
-                        android:text="Level 6"
+                        android:text="Level C"
                         android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/levelCLabel">
+
+                        <ImageView
+                            android:id="@+id/levelCStar1"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp" />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/levelCStar2"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="2dp"
+                            android:id="@+id/levelCStar3"
+                            />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toRightOf="@id/layoutSeason1LevelC"
+                    android:background="@drawable/popupborder"
+                    android:padding="10dp"
+                    android:id="@+id/layoutSeason1LevelD">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/levelDLabel"
+                        android:layout_marginTop="10dp"
+                        android:text="Level D"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/chewy"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/levelDLabel">
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:id="@+id/levelDStar1"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/levelDStar2"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="2dp"
+                            android:id="@+id/levelDStar3"
+                            />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layoutSeason1LevelRow3"
+                android:layout_below="@id/layoutSeason1LevelRow2"
+                android:layout_margin="25dp">
+
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/popupborder"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/layoutSeason1LevelE">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/levelELabel"
+                        android:layout_marginTop="10dp"
+                        android:text="Level E"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/chewy"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/levelELabel">
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:id="@+id/levelEStar1"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/levelEStar2"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="2dp"
+                            android:id="@+id/levelEStar3"
+                            />
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toRightOf="@id/layoutSeason1LevelE"
+                    android:background="@drawable/popupborder"
+                    android:padding="10dp"
+                    android:id="@+id/layoutSeason1LevelF"
+                  >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/levelFLabel"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/chewy"
+                        android:gravity="center"
+                        android:text="Level F"
+                        android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/levelFLabel">
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:id="@+id/levelFStar1"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/levelFStar2"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="2dp"
+                            android:id="@+id/levelFStar3"
+                            />
+                    </RelativeLayout>
                 </RelativeLayout>
 
             </RelativeLayout>

@@ -22,6 +22,8 @@ public class Season1Levels extends AppCompatActivity {
         levelA = (RelativeLayout)findViewById(R.id.layoutSeason1LevelA);
         levelB = (RelativeLayout)findViewById(R.id.layoutSeason1LevelB);
         levelC = (RelativeLayout)findViewById(R.id.layoutSeason1LevelC);
+        levelD = (RelativeLayout)findViewById(R.id.layoutSeason1LevelD);
+        levelE = (RelativeLayout)findViewById(R.id.layoutSeason1LevelE);
         listener();
     }
     public void listener(){
@@ -45,6 +47,30 @@ public class Season1Levels extends AppCompatActivity {
             public void onClick(View v) {
                 Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
                 GamePlayIntent.putExtra("level","levelB");
+                startActivity(GamePlayIntent);
+            }
+        });
+        levelC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                GamePlayIntent.putExtra("level","levelC");
+                startActivity(GamePlayIntent);
+            }
+        });
+        levelD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                GamePlayIntent.putExtra("level","levelD");
+                startActivity(GamePlayIntent);
+            }
+        });
+        levelE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                GamePlayIntent.putExtra("level","levelE");
                 startActivity(GamePlayIntent);
             }
         });
