@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/popupborder"
+
+    android:orientation="vertical"
+    android:padding="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Game Paused"
+            android:textSize="32sp"
+            android:id="@+id/pauseText"
+            android:fontFamily="@font/chewy"
+            android:layout_marginTop="50dp"
+            android:gravity="center"/>
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/pauseText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/pauseToPlay"
+            android:src="@drawable/play_button" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/pauseToPlay">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/restart"
+                android:layout_marginLeft="70dp"
+                android:src="@drawable/replay"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/restart"
+                android:layout_marginLeft="100dp"
+                android:id="@+id/returnHome"
+                android:src="@drawable/home" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

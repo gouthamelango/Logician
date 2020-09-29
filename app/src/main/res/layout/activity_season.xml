@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".SeasonActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/underlinestyle"
+        android:id="@+id/seasonActivityActionBar">
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/circled_left"
+            android:id="@+id/goBackBtnFromSeasonToHome"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/chewy"
+            android:text="Seasons"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/seasonActivityActionBar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="25dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/layoutSeason1">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/dummy"
+                    android:id="@+id/seasonImage1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_toRightOf="@+id/seasonImage1"
+                    android:fontFamily="@font/chewy"
+                    android:gravity="center"
+                    android:text="Scenario 1 "
+                    android:textSize="30sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutSeason2"
+                android:layout_below="@+id/layoutSeason1">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/seasonImage2"
+                    android:src="@drawable/dummy"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_toRightOf="@+id/seasonImage2"
+                    android:fontFamily="@font/chewy"
+                    android:gravity="center"
+                    android:text="Scenario 2 "
+                    android:textSize="30sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutSeason3"
+
+                android:layout_below="@+id/layoutSeason2">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/seasonImage3"
+                    android:src="@drawable/dummy"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_toRightOf="@+id/seasonImage3"
+                    android:fontFamily="@font/chewy"
+                    android:gravity="center"
+                    android:text="Scenario 3 "
+                    android:textSize="30sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutSeason4"
+                android:layout_below="@+id/layoutSeason3">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/seasonImage4"
+                    android:src="@drawable/dummy"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_toRightOf="@+id/seasonImage4"
+                    android:fontFamily="@font/chewy"
+                    android:gravity="center"
+                    android:text="Scenario 4 "
+                    android:textSize="30sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

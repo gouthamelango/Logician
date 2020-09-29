@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelDFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/chewy"
+        android:gravity="center"
+        android:text="@string/question"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:fontFamily="@font/chewy"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="I have many keys but cannot unlock even a single door. What am I?"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/keys"
+        android:layout_width="match_parent"
+        android:layout_height="381dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/keys" />
+
+    <ImageView
+        android:id="@+id/inform"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/keys"
+        android:layout_marginTop="7dp"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/piano"
+        android:layout_width="126dp"
+        android:layout_height="146dp"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="171dp"
+        android:layout_marginEnd="277dp"
+        android:layout_marginRight="277dp" />
+
+
+</RelativeLayout>

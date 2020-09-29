@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelBFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:padding="10dp"
+        android:paddingTop="0dp"
+        android:fontFamily="@font/chewy"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Question\n\nIt looks green, it opens red. What you eat is red, but what you spit out is black. What is it?"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/basket"
+        android:layout_width="match_parent"
+        android:layout_height="288dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/basket" />
+
+    <ImageView
+        android:id="@+id/inform"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/basket"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/watermelon"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginRight="212dp"
+        android:src="@drawable/watermelonfruit" />
+
+
+</RelativeLayout>

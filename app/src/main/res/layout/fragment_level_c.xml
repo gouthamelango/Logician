@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelCFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/chewy"
+        android:gravity="center"
+        android:text="Question"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:fontFamily="@font/chewy"
+        android:padding="10dp"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Which word is spelled the same backward, as well as forward?"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/shelf"
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/shelf" />
+
+    <ImageView
+        android:id="@+id/racecar"
+        android:layout_width="67dp"
+        android:layout_height="53dp"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginRight="135dp" />
+
+    <ImageView
+        android:id="@+id/inform"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/shelf"
+        android:layout_marginTop="7dp"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".GameActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/underlinestyle"
+        android:id="@+id/gameActionBar">
+0
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/circled_left"
+            android:id="@+id/exitGamePlay"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/chewy"
+            android:id="@+id/levelName"
+            android:text="Level Name"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/pauseGamePlay"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/pause_game" />
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gameLayoutContainer"
+        android:layout_below="@+id/gameActionBar">
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/upperlinestyle">
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
