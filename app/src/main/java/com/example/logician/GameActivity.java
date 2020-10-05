@@ -124,6 +124,26 @@ public class GameActivity extends AppCompatActivity {
             levelFFragmentTransaction.commit();
 
         }
+        if(levelAlpha.equals("levelG")){
+
+            levelName.setText("Level G");
+
+            FragmentTransaction levelGFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelGFragment levelGFragment = new LevelGFragment();
+            levelGFragmentTransaction.replace(R.id.gameLayoutContainer,levelGFragment);
+            levelGFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelH")){
+
+            levelName.setText("Level H");
+
+            FragmentTransaction levelHFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelHFragment levelHFragment = new LevelHFragment();
+            levelHFragmentTransaction.replace(R.id.gameLayoutContainer,levelHFragment);
+            levelHFragmentTransaction.commit();
+
+        }
 
 
 
@@ -180,7 +200,7 @@ public class GameActivity extends AppCompatActivity {
         exitGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
+                Intent season1LevelIntent  = new Intent(getApplicationContext(),SeasonActivity.class);
                 startActivity(season1LevelIntent);
             }
         });
@@ -423,6 +443,18 @@ public class GameActivity extends AppCompatActivity {
                     startActivity(intent);
                     GameActivity.this.finish();
                 }
+                if(levelAlpha.equals("levelF")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelG");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelG")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelH");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
 
             }
         });
@@ -444,7 +476,7 @@ public class GameActivity extends AppCompatActivity {
         returnHomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
+                Intent season1LevelIntent  = new Intent(getApplicationContext(),SeasonActivity.class);
                 startActivity(season1LevelIntent);
             }
         });

@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 
 public class SeasonActivity extends AppCompatActivity {
     ImageView goBack;
-    RelativeLayout season1;
+    RelativeLayout season1,season2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,7 @@ public class SeasonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_season);
 
         season1  = (RelativeLayout)findViewById(R.id.layoutSeason1);
+        season2  = (RelativeLayout)findViewById(R.id.layoutSeason2);
         goBack = (ImageView)findViewById(R.id.goBackBtnFromSeasonToHome);
         listener();
     }
@@ -34,6 +35,13 @@ public class SeasonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent season1LevelIntent  = new Intent(getApplicationContext(),Season1Levels.class);
+                startActivity(season1LevelIntent);
+            }
+        });
+        season2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent season1LevelIntent  = new Intent(getApplicationContext(),Season2Levels.class);
                 startActivity(season1LevelIntent);
             }
         });
