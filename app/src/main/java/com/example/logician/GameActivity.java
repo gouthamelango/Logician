@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -34,6 +36,9 @@ public class GameActivity extends AppCompatActivity {
     int endTime = 60;
 
     ImageView s1,s2,s3;
+
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    SharedPreferences sharedpreferences;
 
 
     @Override
@@ -309,8 +314,25 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    private void  storePref(String levelKey,String starsCount){
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        if(!sharedpreferences.contains(levelKey)){
+            editor.putString(levelKey, starsCount);
+            editor.commit();
+           // Toast.makeText(this,"Committed",Toast.LENGTH_LONG).show();
+        }
+        else {
+            editor.putString(levelKey, starsCount);
+           // Toast.makeText(this,"Updated",Toast.LENGTH_LONG).show();
+            editor.apply();
+        }
+
+    }
+
     public  void levelCleared(){
 
+        String star = "0";
         ImageView close;
         scoreCard.setCancelable(false);
         isPaused = true;
@@ -322,32 +344,39 @@ public class GameActivity extends AppCompatActivity {
 
         int completedTime  = Integer.parseInt(timeRemaining);
         if(completedTime>=50){
+            star = "3";
             s1.setImageResource(R.drawable.fullstar);
             s2.setImageResource(R.drawable.fullstar);
             s3.setImageResource(R.drawable.fullstar);
 
         }
         if((completedTime>=45)&&(completedTime<50)){
+            star = "2.5";
             s1.setImageResource(R.drawable.fullstar);
             s2.setImageResource(R.drawable.fullstar);
             s3.setImageResource(R.drawable.halfstar);
 
         }
         if((completedTime>=40)&&(completedTime<45)){
+            star = "2";
             s1.setImageResource(R.drawable.fullstar);
             s2.setImageResource(R.drawable.fullstar);
             s3.setImageResource(R.drawable.emptystar);
         }
         if((completedTime>=30)&&(completedTime<40)){
+            star = "1.5";
             s1.setImageResource(R.drawable.fullstar);
             s2.setImageResource(R.drawable.halfstar);
             s3.setImageResource(R.drawable.emptystar);
         }
         if(completedTime<30){
+            star = "1";
             s1.setImageResource(R.drawable.fullstar);
             s2.setImageResource(R.drawable.emptystar);
             s3.setImageResource(R.drawable.emptystar);
         }
+
+        storePref(levelAlpha,star);
 
         ImageView nextBtn;
         nextBtn =  (ImageView)scoreCard.findViewById(R.id.nextLevel);

@@ -1,5 +1,7 @@
 package com.example.logician;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -81,6 +83,10 @@ public class LevelEFragment extends Fragment {
 
                     public void onFinish() {
                         informAns.setImageResource(0);
+                        SharedPreferences mPrefs = getActivity().getSharedPreferences(GameActivity.MyPREFERENCES, Context.MODE_PRIVATE); //add key
+                        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                        prefsEditor.putBoolean("levelFLockValue", false);
+                        prefsEditor.apply();
                         ((GameActivity)getActivity()).levelCleared();
                     }
                 }.start();
