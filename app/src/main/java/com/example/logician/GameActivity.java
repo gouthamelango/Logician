@@ -53,7 +53,8 @@ public class GameActivity extends AppCompatActivity {
         restartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
+                startActivity(getIntent());
             }
         });
         //Load Game
@@ -176,8 +177,10 @@ public class GameActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         pauseDialog.dismiss();
-                        isPaused = false;
-                        fn_countdown();
+                    //    isPaused = false;
+                       // fn_countdown();
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
 
@@ -465,9 +468,11 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 scoreCard.dismiss();
-                isPaused = false;
-                isCancelled = false;
-                fn_countdown();
+             //   isPaused = false;
+              //  isCancelled = false;
+               // fn_countdown();
+                finish();
+                startActivity(getIntent());
             }
         });
 
