@@ -114,6 +114,16 @@ public class GameActivity extends AppCompatActivity {
             levelEFragmentTransaction.commit();
 
         }
+        if(levelAlpha.equals("levelF")){
+
+            levelName.setText("Level F");
+
+            FragmentTransaction levelFFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelFFragment levelFFragment = new LevelFFragment();
+            levelFFragmentTransaction.replace(R.id.gameLayoutContainer,levelFFragment);
+            levelFFragmentTransaction.commit();
+
+        }
 
 
 

@@ -18,6 +18,7 @@ public class Season1Levels extends AppCompatActivity {
     ImageView levelCStar1 ,levelCStar2, levelCStar3;
     ImageView levelDStar1 ,levelDStar2, levelDStar3;
     ImageView levelEStar1 ,levelEStar2, levelEStar3;
+    ImageView levelFStar1 ,levelFStar2, levelFStar3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class Season1Levels extends AppCompatActivity {
         levelC = (RelativeLayout)findViewById(R.id.layoutSeason1LevelC);
         levelD = (RelativeLayout)findViewById(R.id.layoutSeason1LevelD);
         levelE = (RelativeLayout)findViewById(R.id.layoutSeason1LevelE);
+        levelF = (RelativeLayout)findViewById(R.id.layoutSeason1LevelF);
         listener();
         getStars();
 
@@ -56,6 +58,10 @@ public class Season1Levels extends AppCompatActivity {
         levelEStar1 = findViewById(R.id.levelEStar1);
         levelEStar2 = findViewById(R.id.levelEStar2);
         levelEStar3 = findViewById(R.id.levelEStar3);
+
+        levelFStar1 = findViewById(R.id.levelFStar1);
+        levelFStar2 = findViewById(R.id.levelFStar2);
+        levelFStar3 = findViewById(R.id.levelFStar3);
 
         SharedPreferences mPrefs = getSharedPreferences(GameActivity.MyPREFERENCES, MODE_PRIVATE); //add key
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -86,6 +92,12 @@ public class Season1Levels extends AppCompatActivity {
             prefsEditor.putBoolean("levelELockValue", true);
             prefsEditor.commit();
            // Toast.makeText(this,"Committed",Toast.LENGTH_LONG).show();
+        }
+
+        if(!mPrefs.contains("levelFLockValue")){
+            prefsEditor.putBoolean("levelFLockValue", true);
+            prefsEditor.commit();
+            // Toast.makeText(this,"Committed",Toast.LENGTH_LONG).show();
         }
 
 
@@ -301,6 +313,50 @@ public class Season1Levels extends AppCompatActivity {
             }
         }
 
+        //LEVEL F
+        Boolean DataLevelFLock = mPrefs.getBoolean("levelFLockValue",true);
+        if(DataLevelFLock){
+            levelFStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelF = mPrefs.getString("levelF", "0");
+
+            if (dataLevelF.equals("0")){
+                levelFStar1.setImageResource(R.drawable.emptystar);
+                levelFStar2.setImageResource(R.drawable.emptystar);
+                levelFStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelF.equals("3")){
+                levelFStar1.setImageResource(R.drawable.fullstar);
+                levelFStar2.setImageResource(R.drawable.fullstar);
+                levelFStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelF.equals("2.5")){
+                levelFStar1.setImageResource(R.drawable.fullstar);
+                levelFStar2.setImageResource(R.drawable.fullstar);
+                levelFStar3.setImageResource(R.drawable.halfstar);
+
+            }
+            else if (dataLevelF.equals("2")){
+                levelFStar1.setImageResource(R.drawable.fullstar);
+                levelFStar2.setImageResource(R.drawable.fullstar);
+                levelFStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelF.equals("1.5")){
+                levelFStar1.setImageResource(R.drawable.fullstar);
+                levelFStar2.setImageResource(R.drawable.halfstar);
+                levelFStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelF.equals("1")){
+                levelFStar1.setImageResource(R.drawable.fullstar);
+                levelFStar2.setImageResource(R.drawable.emptystar);
+                levelFStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+
 
     }
     public void listener(){
@@ -361,6 +417,17 @@ public class Season1Levels extends AppCompatActivity {
                 if(!DataLevelELock){
                     Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
                     GamePlayIntent.putExtra("level","levelE");
+                    startActivity(GamePlayIntent);
+                }
+            }
+        });
+        levelF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelFLock = mPrefs.getBoolean("levelFLockValue",true);
+                if(!DataLevelFLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelF");
                     startActivity(GamePlayIntent);
                 }
             }

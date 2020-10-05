@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelFFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/chewy"
+        android:gravity="center"
+        android:text="@string/question"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:fontFamily="@font/chewy"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="At a conference, 12 members shook hands with each other before and after the meeting. How many handshakes have occurred?"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/handshake"
+        android:layout_width="match_parent"
+        android:layout_height="269dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="118dp"
+        android:src="@drawable/handshake" />
+
+    <ImageView
+        android:id="@+id/inform"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="175dp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/value"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:text="Submit" />
+
+
+
+</RelativeLayout>
