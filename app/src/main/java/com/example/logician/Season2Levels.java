@@ -15,6 +15,8 @@ public class Season2Levels extends AppCompatActivity {
     ImageView levelGStar1 ,levelGStar2, levelGStar3;
     ImageView levelHStar1 ,levelHStar2, levelHStar3;
     ImageView levelIStar1 ,levelIStar2, levelIStar3;
+    ImageView levelJStar1 ,levelJStar2, levelJStar3;
+    ImageView levelKStar1 ,levelKStar2, levelKStar3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,16 @@ public class Season2Levels extends AppCompatActivity {
         levelIStar2 = findViewById(R.id.levelIStar2);
         levelIStar3 = findViewById(R.id.levelIStar3);
 
+        levelJStar1 = findViewById(R.id.levelJStar1);
+        levelJStar2 = findViewById(R.id.levelJStar2);
+        levelJStar3 = findViewById(R.id.levelJStar3);
+
+        levelKStar1 = findViewById(R.id.levelKStar1);
+        levelKStar2 = findViewById(R.id.levelKStar2);
+        levelKStar3 = findViewById(R.id.levelKStar3);
+
+
+
         SharedPreferences mPrefs = getSharedPreferences(GameActivity.MyPREFERENCES, MODE_PRIVATE); //add key
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
 
@@ -62,6 +74,16 @@ public class Season2Levels extends AppCompatActivity {
         }
         if(!mPrefs.contains("levelILockValue")){
             prefsEditor.putBoolean("levelILockValue", true);
+            prefsEditor.commit();
+            // Toast.makeText(this,"Committed",Toast.LENGTH_LONG).show();
+        }
+        if(!mPrefs.contains("levelJLockValue")){
+            prefsEditor.putBoolean("levelJLockValue", true);
+            prefsEditor.commit();
+            // Toast.makeText(this,"Committed",Toast.LENGTH_LONG).show();
+        }
+        if(!mPrefs.contains("levelKLockValue")){
+            prefsEditor.putBoolean("levelKLockValue", true);
             prefsEditor.commit();
             // Toast.makeText(this,"Committed",Toast.LENGTH_LONG).show();
         }
@@ -152,7 +174,7 @@ public class Season2Levels extends AppCompatActivity {
                 levelHStar3.setImageResource(R.drawable.emptystar);
             }
         }
-        //LEVEL H
+        //LEVEL I
         Boolean DataLevelILock = mPrefs.getBoolean("levelILockValue",true);
         if(DataLevelILock){
             levelIStar2.setImageResource(R.drawable.lock);
@@ -193,6 +215,94 @@ public class Season2Levels extends AppCompatActivity {
                 levelIStar1.setImageResource(R.drawable.fullstar);
                 levelIStar2.setImageResource(R.drawable.emptystar);
                 levelIStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+
+        //LEVEL J
+        Boolean DataLevelJLock = mPrefs.getBoolean("levelJLockValue",true);
+        if(DataLevelJLock){
+            levelJStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelJ = mPrefs.getString("levelJ", "0");
+
+            if (dataLevelJ.equals("0")){
+                levelJStar1.setImageResource(R.drawable.emptystar);
+                levelJStar2.setImageResource(R.drawable.emptystar);
+                levelJStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelJ.equals("3")){
+                levelJStar1.setImageResource(R.drawable.fullstar);
+                levelJStar2.setImageResource(R.drawable.fullstar);
+                levelJStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelJ.equals("2.5")){
+                levelJStar1.setImageResource(R.drawable.fullstar);
+                levelJStar2.setImageResource(R.drawable.fullstar);
+                levelJStar3.setImageResource(R.drawable.halfstar);
+
+            }
+            else if (dataLevelJ.equals("2")){
+                levelJStar1.setImageResource(R.drawable.fullstar);
+                levelJStar2.setImageResource(R.drawable.fullstar);
+                levelJStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelJ.equals("1.5")){
+                levelJStar1.setImageResource(R.drawable.fullstar);
+                levelJStar2.setImageResource(R.drawable.halfstar);
+                levelJStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelJ.equals("1")){
+                levelJStar1.setImageResource(R.drawable.fullstar);
+                levelJStar2.setImageResource(R.drawable.emptystar);
+                levelJStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+
+        //LEVEL K
+        Boolean DataLevelKLock = mPrefs.getBoolean("levelKLockValue",true);
+        if(DataLevelKLock){
+            levelKStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelK = mPrefs.getString("levelK", "0");
+
+            if (dataLevelK.equals("0")){
+                levelKStar1.setImageResource(R.drawable.emptystar);
+                levelKStar2.setImageResource(R.drawable.emptystar);
+                levelKStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelK.equals("3")){
+                levelKStar1.setImageResource(R.drawable.fullstar);
+                levelKStar2.setImageResource(R.drawable.fullstar);
+                levelKStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelK.equals("2.5")){
+                levelKStar1.setImageResource(R.drawable.fullstar);
+                levelKStar2.setImageResource(R.drawable.fullstar);
+                levelKStar3.setImageResource(R.drawable.halfstar);
+
+            }
+            else if (dataLevelK.equals("2")){
+                levelKStar1.setImageResource(R.drawable.fullstar);
+                levelKStar2.setImageResource(R.drawable.fullstar);
+                levelKStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelK.equals("1.5")){
+                levelKStar1.setImageResource(R.drawable.fullstar);
+                levelKStar2.setImageResource(R.drawable.halfstar);
+                levelKStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelK.equals("1")){
+                levelKStar1.setImageResource(R.drawable.fullstar);
+                levelKStar2.setImageResource(R.drawable.emptystar);
+                levelKStar3.setImageResource(R.drawable.emptystar);
             }
         }
 
@@ -237,6 +347,28 @@ public class Season2Levels extends AppCompatActivity {
                 if(!DataLevelILock){
                     Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
                     GamePlayIntent.putExtra("level","levelI");
+                    startActivity(GamePlayIntent);
+                }
+            }
+        });
+        levelJ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelJLock = mPrefs.getBoolean("levelJLockValue",true);
+                if(!DataLevelJLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelJ");
+                    startActivity(GamePlayIntent);
+                }
+            }
+        });
+        levelK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelKLock = mPrefs.getBoolean("levelKLockValue",true);
+                if(!DataLevelKLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelK");
                     startActivity(GamePlayIntent);
                 }
             }
