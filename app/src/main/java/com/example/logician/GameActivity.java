@@ -145,6 +145,16 @@ public class GameActivity extends AppCompatActivity {
             levelHFragmentTransaction.commit();
 
         }
+        if(levelAlpha.equals("levelI")){
+
+            levelName.setText("Level I");
+
+            FragmentTransaction levelIFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelIFragment levelIFragment = new LevelIFragment();
+            levelIFragmentTransaction.replace(R.id.gameLayoutContainer,levelIFragment);
+            levelIFragmentTransaction.commit();
+
+        }
 
 
 
@@ -326,9 +336,11 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 scoreCard.dismiss();
-                isPaused = false;
-                isCancelled = false;
-                fn_countdown();
+                //isPaused = false;
+                //isCancelled = false;
+               // fn_countdown();
+                finish();
+                startActivity(getIntent());
             }
         });
 
@@ -455,6 +467,30 @@ public class GameActivity extends AppCompatActivity {
                 if(levelAlpha.equals("levelG")){
                     Intent intent = new Intent(GameActivity.this, GameActivity.class);
                     intent.putExtra("level","levelH");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelH")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelI");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelI")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelJ");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelJ")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelK");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelK")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelL");
                     startActivity(intent);
                     GameActivity.this.finish();
                 }
