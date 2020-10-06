@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LevelKFragment">
+    tools:context=".LevelLFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/questionTxt"
         android:layout_width="match_parent"
@@ -30,31 +31,31 @@
         android:fontFamily="@font/chewy"
         android:foregroundGravity="center_vertical|center|center_horizontal"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="What is the parking slot number of the parked car? "
+        android:text="How many times can you subtract 10 from 100?"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/parking"
+        android:id="@+id/subtraction"
         android:layout_width="match_parent"
-        android:layout_height="187dp"
+        android:layout_height="261dp"
         android:layout_below="@+id/question"
-        android:layout_marginTop="17dp"
-        android:src="@drawable/parkingslots" />
+        android:layout_marginTop="20dp"
+        android:src="@drawable/subtracting" />
 
     <ImageView
         android:id="@+id/inform"
         android:layout_width="match_parent"
         android:layout_height="182dp"
         android:layout_below="@+id/value"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="39dp"
         android:visibility="visible" />
 
     <EditText
         android:id="@+id/value"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/parking"
+        android:layout_below="@+id/subtraction"
         android:layout_marginTop="37dp"
         android:ems="10"
         android:inputType="numberDecimal" />
@@ -63,7 +64,7 @@
         android:id="@+id/submit"
         android:layout_width="104dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/parking"
+        android:layout_below="@+id/subtraction"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="36dp"
