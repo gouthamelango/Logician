@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Season2Levels"></activity>
+        <activity android:name=".Season4Levels"></activity>
+        <activity android:name=".Season2Levels" />
         <activity android:name=".GameActivity" />
         <activity android:name=".Season1Levels" />
         <activity android:name=".SeasonActivity" />
@@ -18,6 +19,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

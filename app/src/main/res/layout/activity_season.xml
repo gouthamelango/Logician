@@ -133,7 +133,7 @@
                     android:layout_toRightOf="@+id/seasonImage4"
                     android:fontFamily="@font/chewy"
                     android:gravity="center"
-                    android:text="Scenario 4 "
+                    android:text="Crime"
                     android:textSize="30sp" />
 
             </RelativeLayout>

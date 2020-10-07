@@ -3,9 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LevelMFragment">
+    tools:context=".LevelWFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/optionD"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:text="eric"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/optionA"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/murderer"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="255dp"
+        android:layout_marginRight="255dp"
+        android:text="the father"
+        android:textSize="14sp" />
+
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
@@ -13,36 +39,10 @@
         android:layout_below="@+id/question"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="319dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:text="one plus twelve"
-        android:textSize="14sp" />
-
-    <Button
-        android:id="@+id/optionA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/numbers"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="243dp"
-        android:layout_marginRight="243dp"
-        android:text="four plus nine"
-        android:textSize="14sp" />
-
-    <Button
-        android:id="@+id/optionC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/question"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="319dp"
-        android:layout_marginEnd="238dp"
-        android:layout_marginRight="238dp"
-        android:text="five plus eight"
+        android:layout_marginTop="294dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginRight="254dp"
+        android:text="uncle george"
         android:textSize="14sp" />
 
     <TextView
@@ -63,29 +63,29 @@
         android:layout_below="@+id/questionTxt"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:fontFamily="@font/chewy"
         android:foregroundGravity="center_vertical|center|center_horizontal"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="Arithmetic Anagrams: Which combination of the same letters used in 'two plus eleven' also results in the correct answer of 13? "
+        android:text="On a Sunday morning, the oldest girl in a family was murdered. The father was reading the paper, the mother was in the kitchen cooking breakfast, and the girl’s younger brother Eric was playing video games. Uncle George was visiting and was out getting the mail. Who murdered the girl?"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/numbers"
+        android:id="@+id/murderer"
         android:layout_width="match_parent"
         android:layout_height="174dp"
         android:layout_below="@+id/question"
-        android:layout_marginTop="31dp"
-        android:src="@drawable/numbersjumble" />
+        android:layout_marginTop="13dp"
+        android:src="@drawable/killer" />
 
     <ImageView
         android:id="@+id/inform"
         android:layout_width="match_parent"
         android:layout_height="182dp"
-        android:layout_below="@+id/optionC"
+        android:layout_below="@+id/submit"
         android:layout_marginTop="3dp"
         android:visibility="visible" />
 
@@ -96,10 +96,10 @@
         android:layout_below="@+id/question"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="233dp"
+        android:layout_marginTop="218dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
-        android:text="three plus ten"
+        android:text="the mother"
         android:textSize="14sp" />
 
 
