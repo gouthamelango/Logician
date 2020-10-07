@@ -195,6 +195,16 @@ public class GameActivity extends AppCompatActivity {
             levelMFragmentTransaction.commit();
 
         }
+        if(levelAlpha.equals("levelN")){
+
+            levelName.setText("Level N");
+
+            FragmentTransaction levelNFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelNFragment levelNFragment = new LevelNFragment();
+            levelNFragmentTransaction.replace(R.id.gameLayoutContainer,levelNFragment);
+            levelNFragmentTransaction.commit();
+
+        }
 
 
 
@@ -543,6 +553,24 @@ public class GameActivity extends AppCompatActivity {
                 if(levelAlpha.equals("levelM")){
                     Intent intent = new Intent(GameActivity.this, GameActivity.class);
                     intent.putExtra("level","levelN");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelN")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelO");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelO")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelP");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelP")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelQ");
                     startActivity(intent);
                     GameActivity.this.finish();
                 }
