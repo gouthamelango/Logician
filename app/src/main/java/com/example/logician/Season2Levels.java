@@ -82,6 +82,10 @@ public class Season2Levels extends AppCompatActivity {
         levelOStar2 = findViewById(R.id.levelOStar2);
         levelOStar3 = findViewById(R.id.levelOStar3);
 
+        levelPStar1 = findViewById(R.id.levelPStar1);
+        levelPStar2 = findViewById(R.id.levelPStar2);
+        levelPStar3 = findViewById(R.id.levelPStar3);
+
 
         SharedPreferences mPrefs = getSharedPreferences(GameActivity.MyPREFERENCES, MODE_PRIVATE); //add key
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -530,6 +534,49 @@ public class Season2Levels extends AppCompatActivity {
             }
         }
 
+        //LEVEL P
+        Boolean DataLevelPLock = mPrefs.getBoolean("levelPLockValue",true);
+        if(DataLevelPLock){
+            levelPStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelP = mPrefs.getString("levelP", "0");
+
+            if (dataLevelP.equals("0")){
+                levelPStar1.setImageResource(R.drawable.emptystar);
+                levelPStar2.setImageResource(R.drawable.emptystar);
+                levelPStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelP.equals("3")){
+                levelPStar1.setImageResource(R.drawable.fullstar);
+                levelPStar2.setImageResource(R.drawable.fullstar);
+                levelPStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelP.equals("2.5")){
+                levelPStar1.setImageResource(R.drawable.fullstar);
+                levelPStar2.setImageResource(R.drawable.fullstar);
+                levelPStar3.setImageResource(R.drawable.halfstar);
+            }
+            else if (dataLevelP.equals("2")){
+                levelPStar1.setImageResource(R.drawable.fullstar);
+                levelPStar2.setImageResource(R.drawable.fullstar);
+                levelPStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelP.equals("1.5")){
+                levelPStar1.setImageResource(R.drawable.fullstar);
+                levelPStar2.setImageResource(R.drawable.halfstar);
+                levelPStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelP.equals("1")){
+                levelPStar1.setImageResource(R.drawable.fullstar);
+                levelPStar2.setImageResource(R.drawable.emptystar);
+                levelPStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+
     }
 
     public void listener(){
@@ -637,6 +684,17 @@ public class Season2Levels extends AppCompatActivity {
                 if(!DataLevelOLock){
                     Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
                     GamePlayIntent.putExtra("level","levelO");
+                    startActivity(GamePlayIntent);
+                }
+            }
+        });
+        levelP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelPLock = mPrefs.getBoolean("levelPLockValue",true);
+                if(!DataLevelPLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelP");
                     startActivity(GamePlayIntent);
                 }
             }

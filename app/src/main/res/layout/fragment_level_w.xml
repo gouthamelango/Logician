@@ -26,9 +26,9 @@
         android:layout_below="@+id/murderer"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="255dp"
-        android:layout_marginRight="255dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="237dp"
+        android:layout_marginRight="237dp"
         android:text="the father"
         android:textSize="14sp" />
 
@@ -39,9 +39,9 @@
         android:layout_below="@+id/question"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="294dp"
-        android:layout_marginEnd="254dp"
-        android:layout_marginRight="254dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginRight="233dp"
         android:text="uncle george"
         android:textSize="14sp" />
 
