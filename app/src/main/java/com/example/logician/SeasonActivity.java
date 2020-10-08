@@ -62,4 +62,12 @@ public class SeasonActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(SeasonActivity.this, MainActivity.class));
+        finish();
+
+    }
 }

@@ -35,8 +35,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="25dp"
-            >
+            android:padding="10dp"
+            android:layout_margin="15dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:id="@+id/seasonImage3"
-                    android:src="@drawable/dummy"/>
+                    android:src="@drawable/wordplaylogo"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -126,7 +126,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:id="@+id/seasonImage4"
-                    android:src="@drawable/dummy"/>
+                    android:src="@drawable/crimelogo"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

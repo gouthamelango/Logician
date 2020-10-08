@@ -433,4 +433,12 @@ public class Season3Levels extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Season3Levels.this, SeasonActivity.class));
+        finish();
+
+    }
 }

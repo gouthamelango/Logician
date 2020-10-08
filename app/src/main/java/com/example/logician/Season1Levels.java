@@ -433,4 +433,12 @@ public class Season1Levels extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Season1Levels.this, SeasonActivity.class));
+        finish();
+
+    }
 }

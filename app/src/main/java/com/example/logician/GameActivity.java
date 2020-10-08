@@ -781,7 +781,14 @@ public class GameActivity extends AppCompatActivity {
        scoreCard.show();
 
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(GameActivity.this, SeasonActivity.class));
+        finish();
 
+    }
 
 
 

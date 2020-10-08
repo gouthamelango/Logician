@@ -700,4 +700,12 @@ public class Season2Levels extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(Season2Levels.this, SeasonActivity.class));
+        finish();
+
+    }
 }
