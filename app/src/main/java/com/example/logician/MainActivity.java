@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public  void  showSettingsPopup(View v){
-        TextView close;
+        ImageView close;
         settingsDialog.setContentView(R.layout.settings_popup);
-        close = (TextView)settingsDialog.findViewById(R.id.txtclose);
+        close = settingsDialog.findViewById(R.id.txtClose);
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override
