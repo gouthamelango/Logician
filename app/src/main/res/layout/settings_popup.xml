@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="350dp"
     android:layout_height="475dp"
     android:background="#FFFFFF"
     android:padding="5dp"
     android:layout_gravity="center">
-    <TextView
-        android:id="@+id/txtclose"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:textColor="#000"
-        android:text="X"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="end"
-        android:gravity="center"
-        android:background="@drawable/circlebackground"/>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/wrong_ans"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txtClose"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/circlebackground"
+        />
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

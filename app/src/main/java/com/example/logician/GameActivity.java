@@ -57,6 +57,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageView close;
+                TextView hintContent;
                 hintDialog.setCancelable(true);
                 hintDialog.setContentView(R.layout.hint_popup);
 
@@ -67,7 +68,19 @@ public class GameActivity extends AppCompatActivity {
                         hintDialog.dismiss();
                     }
                 });
+
+                hintContent = (TextView)hintDialog.findViewById(R.id.hintContent);
+
+                if(levelAlpha.equals("levelQ")){
+                    hintContent.setText("Analyse the image Carefully");
+                }
+               if(levelAlpha.equals("levelS")){
+                   hintContent.setText("My name is a homophone to the synonym of a team and I provide better minerals than apple");
+               }
+
+
                 hintDialog.show();
+
             }
         });
 
@@ -805,6 +818,7 @@ public class GameActivity extends AppCompatActivity {
        scoreCard.show();
 
     }
+    /*
     @Override
     public void onBackPressed()
     {
@@ -812,7 +826,7 @@ public class GameActivity extends AppCompatActivity {
         startActivity(new Intent(GameActivity.this, SeasonActivity.class));
         finish();
 
-    }
+    }*/
 
 
 

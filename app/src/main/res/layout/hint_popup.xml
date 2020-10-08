@@ -32,6 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/hintLightDisplayImg"
         android:id="@+id/hintContent"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:layout_margin="25dp"/>
 
 
