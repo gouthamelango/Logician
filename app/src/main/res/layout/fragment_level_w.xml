@@ -102,5 +102,4 @@
         android:text="the mother"
         android:textSize="14sp" />
 
-
 </RelativeLayout>

@@ -296,6 +296,36 @@ public class GameActivity extends AppCompatActivity {
             levelWFragmentTransaction.commit();
 
         }
+        if(levelAlpha.equals("levelX")){
+
+            levelName.setText("Level X");
+
+            FragmentTransaction levelXFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelXFragment levelXFragment = new LevelXFragment();
+            levelXFragmentTransaction.replace(R.id.gameLayoutContainer,levelXFragment);
+            levelXFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelY")){
+
+            levelName.setText("Level Y");
+
+            FragmentTransaction levelYFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelYFragment levelYFragment = new LevelYFragment();
+            levelYFragmentTransaction.replace(R.id.gameLayoutContainer,levelYFragment);
+            levelYFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelZ")){
+
+            levelName.setText("Level Z");
+
+            FragmentTransaction levelZFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelZFragment levelZFragment = new LevelZFragment();
+            levelZFragmentTransaction.replace(R.id.gameLayoutContainer,levelZFragment);
+            levelZFragmentTransaction.commit();
+
+        }
 
 
 
@@ -694,6 +724,31 @@ public class GameActivity extends AppCompatActivity {
                     intent.putExtra("level","levelW");
                     startActivity(intent);
                     GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelW")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelX");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelX")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelY");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelY")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelZ");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelZ")){
+                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                   // intent.putExtra("level","levelW");
+                    startActivity(intent);
+                   // GameActivity.this.finish();
+                    Toast.makeText(getApplicationContext(),"Version 2.0 Coming Up Soon",Toast.LENGTH_LONG).show();
                 }
 
             }

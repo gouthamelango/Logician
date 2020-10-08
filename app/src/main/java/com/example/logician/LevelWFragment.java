@@ -1,5 +1,7 @@
 package com.example.logician;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -118,8 +120,13 @@ public class LevelWFragment extends Fragment {
 
             public void onFinish() {
                 informAns.setImageResource(0);
-                ((GameActivity)getActivity()).levelCleared();
                 Toast.makeText(getActivity().getApplicationContext(), "Uncle George is the killer because it was a Sunday and mail is not delivered on Sunday.", Toast.LENGTH_LONG).show();
+                ((GameActivity)getActivity()).levelCleared();
+                SharedPreferences mPrefs = getActivity().getSharedPreferences(GameActivity.MyPREFERENCES, Context.MODE_PRIVATE); //add key
+                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                prefsEditor.putBoolean("levelXLockValue", false);
+                prefsEditor.apply();
+                ((GameActivity)getActivity()).levelCleared();
             }
         }.start();
     }
