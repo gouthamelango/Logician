@@ -107,7 +107,8 @@
                     android:layout_toRightOf="@+id/seasonImage3"
                     android:fontFamily="@font/chewy"
                     android:gravity="center"
-                    android:text="Scenario 3 "
+                    android:layout_centerVertical="true"
+                    android:text="Words\n Play"
                     android:textSize="30sp" />
 
             </RelativeLayout>

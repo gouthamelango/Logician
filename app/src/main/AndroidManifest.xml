@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Season4Levels"></activity>
+        <activity android:name=".Season3Levels"></activity>
+        <activity android:name=".Season4Levels" />
         <activity android:name=".Season2Levels" />
         <activity android:name=".GameActivity" />
         <activity android:name=".Season1Levels" />

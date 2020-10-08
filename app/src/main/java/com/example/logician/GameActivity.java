@@ -225,6 +225,67 @@ public class GameActivity extends AppCompatActivity {
             levelPFragmentTransaction.commit();
 
         }
+        if(levelAlpha.equals("levelQ")){
+
+            levelName.setText("Level Q");
+
+            FragmentTransaction levelQFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelQFragment levelQFragment = new LevelQFragment();
+            levelQFragmentTransaction.replace(R.id.gameLayoutContainer,levelQFragment);
+            levelQFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelR")){
+
+            levelName.setText("Level R");
+
+            FragmentTransaction levelRFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelRFragment levelRFragment = new LevelRFragment();
+            levelRFragmentTransaction.replace(R.id.gameLayoutContainer,levelRFragment);
+            levelRFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelS")){
+
+            levelName.setText("Level S");
+
+            FragmentTransaction levelSFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelSFragment levelSFragment = new LevelSFragment();
+            levelSFragmentTransaction.replace(R.id.gameLayoutContainer,levelSFragment);
+            levelSFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelT")){
+
+            levelName.setText("Level T");
+
+            FragmentTransaction levelTFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelTFragment levelTFragment = new LevelTFragment();
+            levelTFragmentTransaction.replace(R.id.gameLayoutContainer,levelTFragment);
+            levelTFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelU")){
+
+            levelName.setText("Level U");
+
+            FragmentTransaction levelUFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelUFragment levelUFragment = new LevelUFragment();
+            levelUFragmentTransaction.replace(R.id.gameLayoutContainer,levelUFragment);
+            levelUFragmentTransaction.commit();
+
+        }
+        if(levelAlpha.equals("levelV")){
+
+            levelName.setText("Level V");
+
+            FragmentTransaction levelVFragmentTransaction  =getSupportFragmentManager().beginTransaction();
+            LevelVFragment levelVFragment = new LevelVFragment();
+            levelVFragmentTransaction.replace(R.id.gameLayoutContainer,levelVFragment);
+            levelVFragmentTransaction.commit();
+
+        }
+
         if(levelAlpha.equals("levelW")){
 
             levelName.setText("Level W");
@@ -601,6 +662,36 @@ public class GameActivity extends AppCompatActivity {
                 if(levelAlpha.equals("levelP")){
                     Intent intent = new Intent(GameActivity.this, GameActivity.class);
                     intent.putExtra("level","levelQ");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelQ")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelR");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelR")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelS");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelS")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelT");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelT")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelV");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelV")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelW");
                     startActivity(intent);
                     GameActivity.this.finish();
                 }

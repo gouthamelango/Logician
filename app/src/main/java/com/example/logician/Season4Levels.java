@@ -41,6 +41,14 @@ public class Season4Levels extends AppCompatActivity {
         levelXStar2 = findViewById(R.id.levelXStar2);
         levelXStar3 = findViewById(R.id.levelXStar3);
 
+        levelYStar1 = findViewById(R.id.levelYStar1);
+        levelYStar2 = findViewById(R.id.levelYStar2);
+        levelYStar3 = findViewById(R.id.levelYStar3);
+
+        levelZStar1 = findViewById(R.id.levelZStar1);
+        levelZStar2 = findViewById(R.id.levelZStar2);
+        levelZStar3 = findViewById(R.id.levelZStar3);
+
         SharedPreferences mPrefs = getSharedPreferences(GameActivity.MyPREFERENCES, MODE_PRIVATE); //add key
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
 
@@ -109,6 +117,136 @@ public class Season4Levels extends AppCompatActivity {
             }
         }
 
+        //LEVEL X
+        Boolean DataLevelXLock = mPrefs.getBoolean("levelXLockValue",true);
+        if(DataLevelXLock){
+            levelXStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelX = mPrefs.getString("levelX", "0");
+
+            if (dataLevelX.equals("0")){
+                levelXStar1.setImageResource(R.drawable.emptystar);
+                levelXStar2.setImageResource(R.drawable.emptystar);
+                levelXStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelX.equals("3")){
+                levelXStar1.setImageResource(R.drawable.fullstar);
+                levelXStar2.setImageResource(R.drawable.fullstar);
+                levelXStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelX.equals("2.5")){
+                levelXStar1.setImageResource(R.drawable.fullstar);
+                levelXStar2.setImageResource(R.drawable.fullstar);
+                levelXStar3.setImageResource(R.drawable.halfstar);
+
+            }
+            else if (dataLevelX.equals("2")){
+                levelXStar1.setImageResource(R.drawable.fullstar);
+                levelXStar2.setImageResource(R.drawable.fullstar);
+                levelXStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelX.equals("1.5")){
+                levelXStar1.setImageResource(R.drawable.fullstar);
+                levelXStar2.setImageResource(R.drawable.halfstar);
+                levelXStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelX.equals("1")){
+                levelXStar1.setImageResource(R.drawable.fullstar);
+                levelXStar2.setImageResource(R.drawable.emptystar);
+                levelXStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+        //LEVEL Y
+        Boolean DataLevelYLock = mPrefs.getBoolean("levelYLockValue",true);
+        if(DataLevelYLock){
+            levelYStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelY = mPrefs.getString("levelY", "0");
+
+            if (dataLevelY.equals("0")){
+                levelYStar1.setImageResource(R.drawable.emptystar);
+                levelYStar2.setImageResource(R.drawable.emptystar);
+                levelYStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelY.equals("3")){
+                levelYStar1.setImageResource(R.drawable.fullstar);
+                levelYStar2.setImageResource(R.drawable.fullstar);
+                levelYStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelY.equals("2.5")){
+                levelYStar1.setImageResource(R.drawable.fullstar);
+                levelYStar2.setImageResource(R.drawable.fullstar);
+                levelYStar3.setImageResource(R.drawable.halfstar);
+
+            }
+            else if (dataLevelY.equals("2")){
+                levelYStar1.setImageResource(R.drawable.fullstar);
+                levelYStar2.setImageResource(R.drawable.fullstar);
+                levelYStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelY.equals("1.5")){
+                levelYStar1.setImageResource(R.drawable.fullstar);
+                levelYStar2.setImageResource(R.drawable.halfstar);
+                levelYStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelY.equals("1")){
+                levelYStar1.setImageResource(R.drawable.fullstar);
+                levelYStar2.setImageResource(R.drawable.emptystar);
+                levelYStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+        //LEVEL Z
+        Boolean DataLevelZLock = mPrefs.getBoolean("levelZLockValue",true);
+        if(DataLevelZLock){
+            levelZStar2.setImageResource(R.drawable.lock);
+        }
+        else {
+            String dataLevelZ = mPrefs.getString("levelZ", "0");
+
+            if (dataLevelZ.equals("0")){
+                levelZStar1.setImageResource(R.drawable.emptystar);
+                levelZStar2.setImageResource(R.drawable.emptystar);
+                levelZStar3.setImageResource(R.drawable.emptystar);
+            }
+
+            else if (dataLevelZ.equals("3")){
+                levelZStar1.setImageResource(R.drawable.fullstar);
+                levelZStar2.setImageResource(R.drawable.fullstar);
+                levelZStar3.setImageResource(R.drawable.fullstar);
+            }
+            else if (dataLevelZ.equals("2.5")){
+                levelZStar1.setImageResource(R.drawable.fullstar);
+                levelZStar2.setImageResource(R.drawable.fullstar);
+                levelZStar3.setImageResource(R.drawable.halfstar);
+
+            }
+            else if (dataLevelZ.equals("2")){
+                levelZStar1.setImageResource(R.drawable.fullstar);
+                levelZStar2.setImageResource(R.drawable.fullstar);
+                levelZStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelZ.equals("1.5")){
+                levelZStar1.setImageResource(R.drawable.fullstar);
+                levelZStar2.setImageResource(R.drawable.halfstar);
+                levelZStar3.setImageResource(R.drawable.emptystar);
+
+            }
+            else if (dataLevelZ.equals("1")){
+                levelZStar1.setImageResource(R.drawable.fullstar);
+                levelZStar2.setImageResource(R.drawable.emptystar);
+                levelZStar3.setImageResource(R.drawable.emptystar);
+            }
+        }
+
 
 
 
@@ -129,11 +267,45 @@ public class Season4Levels extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Boolean DataLevelWLock = mPrefs.getBoolean("levelWLockValue",true);
-
-                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
-                    GamePlayIntent.putExtra("level","levelW");
+                if(!DataLevelWLock) {
+                    Intent GamePlayIntent = new Intent(getApplicationContext(), GameActivity.class);
+                    GamePlayIntent.putExtra("level", "levelW");
                     startActivity(GamePlayIntent);
+                }
 
+            }
+        });
+        levelX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelXLock = mPrefs.getBoolean("levelXLockValue",true);
+                if(!DataLevelXLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelX");
+                    startActivity(GamePlayIntent);
+                }
+            }
+        });
+        levelY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelYLock = mPrefs.getBoolean("levelYLockValue",true);
+                if(!DataLevelYLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelY");
+                    startActivity(GamePlayIntent);
+                }
+            }
+        });
+        levelZ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean DataLevelZLock = mPrefs.getBoolean("levelZLockValue",true);
+                if(!DataLevelZLock){
+                    Intent GamePlayIntent  =  new Intent(getApplicationContext(),GameActivity.class);
+                    GamePlayIntent.putExtra("level","levelZ");
+                    startActivity(GamePlayIntent);
+                }
             }
         });
 
