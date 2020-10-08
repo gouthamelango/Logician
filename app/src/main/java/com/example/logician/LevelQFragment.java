@@ -1,12 +1,20 @@
 package com.example.logician;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +31,11 @@ public class LevelQFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ImageView informAns;
+    Button levelQAns;
+    EditText value;
+    String answer = "seesaw";
+
 
     public LevelQFragment() {
         // Required empty public constructor
@@ -59,6 +72,53 @@ public class LevelQFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_level_q, container, false);
+        View view = inflater.inflate(R.layout.fragment_level_q, container, false);
+
+        informAns = view.findViewById(R.id.inform);
+        levelQAns = view.findViewById(R.id.submit);
+        value = view.findViewById(R.id.value);
+
+        levelQAns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(value.getText().toString().equals(answer)){
+                    showanswer();
+                    levelQAns.setBackgroundColor(Color.GREEN);
+                }
+                else {
+                    new CountDownTimer(500, 1) {
+                        public void onTick(long millisUntilFinished) {
+                            informAns.setImageResource(R.drawable.wrong_ans);
+                            levelQAns.setBackgroundColor(Color.RED);
+                        }
+
+                        public void onFinish() {
+                            informAns.setImageResource(0);
+                            Toast.makeText(getActivity().getApplicationContext(), "Incorrect Answer. Try again!", Toast.LENGTH_SHORT).show();
+                        }
+                    }.start();
+                }
+            }
+        });
+
+        return view;
     }
+    public void showanswer(){
+        new CountDownTimer(2000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                informAns.setImageResource(R.drawable.correct);
+            }
+
+            public void onFinish() {
+                informAns.setImageResource(0);
+                SharedPreferences mPrefs = getActivity().getSharedPreferences(GameActivity.MyPREFERENCES, Context.MODE_PRIVATE); //add key
+                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                prefsEditor.putBoolean("levelRLockValue", false);
+                prefsEditor.apply();
+                ((GameActivity)getActivity()).levelCleared();
+            }
+        }.start();
+    }
+
 }

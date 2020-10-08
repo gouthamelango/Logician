@@ -1,12 +1,20 @@
 package com.example.logician;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +27,11 @@ public class LevelRFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    ImageView informAns;
+    Button levelRAns;
+    EditText value;
+    String answer = "envelope";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +72,52 @@ public class LevelRFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_level_r, container, false);
+        View view = inflater.inflate(R.layout.fragment_level_r, container, false);
+
+        informAns = view.findViewById(R.id.inform);
+        levelRAns = view.findViewById(R.id.submit);
+        value = view.findViewById(R.id.value);
+
+        levelRAns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(value.getText().toString().equals(answer)){
+                    showanswer();
+                    levelRAns.setBackgroundColor(Color.GREEN);
+                }
+                else {
+                    new CountDownTimer(500, 1) {
+                        public void onTick(long millisUntilFinished) {
+                            informAns.setImageResource(R.drawable.wrong_ans);
+                            levelRAns.setBackgroundColor(Color.RED);
+                        }
+
+                        public void onFinish() {
+                            informAns.setImageResource(0);
+                            Toast.makeText(getActivity().getApplicationContext(), "Incorrect Answer. Try again!", Toast.LENGTH_SHORT).show();
+                        }
+                    }.start();
+                }
+            }
+        });
+        return view;
     }
+    public void showanswer(){
+        new CountDownTimer(2000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                informAns.setImageResource(R.drawable.correct);
+            }
+
+            public void onFinish() {
+                informAns.setImageResource(0);
+                SharedPreferences mPrefs = getActivity().getSharedPreferences(GameActivity.MyPREFERENCES, Context.MODE_PRIVATE); //add key
+                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                prefsEditor.putBoolean("levelSLockValue", false);
+                prefsEditor.apply();
+                ((GameActivity)getActivity()).levelCleared();
+            }
+        }.start();
+    }
+
 }
