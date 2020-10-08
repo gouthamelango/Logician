@@ -23,8 +23,9 @@ public class GameActivity extends AppCompatActivity {
     String levelAlpha;
     TextView levelName;
     ImageView exitGame;
-    Dialog pauseDialog, scoreCard;
+    Dialog pauseDialog, scoreCard, hintDialog;
     ImageView pauseGame,restartGame;
+    ImageView hintImg;
 
     Boolean isPaused = false,isCancelled  = false;
     int myProgress = 0;
@@ -48,6 +49,29 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         pauseDialog = new Dialog(this);
         scoreCard = new Dialog(this);
+        hintDialog = new Dialog(this);
+
+
+        hintImg = (ImageView)findViewById(R.id.hintImg);
+        hintImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView close;
+                hintDialog.setCancelable(true);
+                hintDialog.setContentView(R.layout.hint_popup);
+
+                close = (ImageView) hintDialog.findViewById(R.id.hintClose);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        hintDialog.dismiss();
+                    }
+                });
+                hintDialog.show();
+            }
+        });
+
+
         restartGame =  (ImageView)findViewById(R.id.replaybw) ;
         //Restart Game
         restartGame.setOnClickListener(new View.OnClickListener() {
