@@ -87,7 +87,7 @@ public class GameActivity extends AppCompatActivity {
                     hintContent.setText("Read the paragraph from starting, carefully this time");
                 }
                 if(levelAlpha.equals("levelF")){
-                    hintContent.setText("12)^2 - (2)^2 - (3)^2. This time much simpler math for you");
+                    hintContent.setText("(12)^2 - (2)^2 - (2)^3. This time much simpler math for you");
                 }
                 if(levelAlpha.equals("levelG")){
                     hintContent.setText("Time is magical always. Keep an eye on it anytime");
@@ -811,6 +811,12 @@ public class GameActivity extends AppCompatActivity {
                     GameActivity.this.finish();
                 }
                 if(levelAlpha.equals("levelT")){
+                    Intent intent = new Intent(GameActivity.this, GameActivity.class);
+                    intent.putExtra("level","levelU");
+                    startActivity(intent);
+                    GameActivity.this.finish();
+                }
+                if(levelAlpha.equals("levelU")){
                     Intent intent = new Intent(GameActivity.this, GameActivity.class);
                     intent.putExtra("level","levelV");
                     startActivity(intent);
