@@ -2,7 +2,9 @@ package com.example.logician;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     Dialog settingsDialog;
     ImageView startGameBtn;
+    ImageView exitGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         settingsDialog = new Dialog(this);
         startGameBtn = (ImageView) findViewById(R.id.startGame);
+        exitGame = (ImageView)findViewById(R.id.exit_game);
 
         listener();
     }
@@ -32,6 +36,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(seasonIntent);
             }
         });
+        exitGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialog.setTitle("Exit Game");
+                alertDialog.setMessage("Are you sure you want to exit?");
+                alertDialog.setCancelable(false);
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(Intent.ACTION_MAIN);
+                                intent.addCategory(Intent.CATEGORY_HOME);
+                                startActivity(intent);
+                            }
+                        });
+
+                alertDialog.show();
+            }
+        });
+
     }
     public  void  showSettingsPopup(View v){
         ImageView close;
@@ -53,7 +83,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
-
-
     }
 }
