@@ -71,12 +71,72 @@ public class GameActivity extends AppCompatActivity {
 
                 hintContent = (TextView)hintDialog.findViewById(R.id.hintContent);
 
+                if(levelAlpha.equals("levelA")){
+                    hintContent.setText("Even this month on the calendar has 28 days. So, it is not 1");
+                }
+                if(levelAlpha.equals("levelB")){
+                    hintContent.setText("It is a fruit as well as a vegetable. R melon was eaten by W");
+                }
+                if(levelAlpha.equals("levelC")){
+                    hintContent.setText("I could move forward and backwards as wel in motion");
+                }
+                if(levelAlpha.equals("levelD")){
+                    hintContent.setText("My keys sounds are unique and named alphabetically");
+                }
+                if(levelAlpha.equals("levelE")){
+                    hintContent.setText("Read the paragraph from starting, carefully this time");
+                }
+                if(levelAlpha.equals("levelF")){
+                    hintContent.setText("12)^2 - (2)^2 - (3)^2. This time much simpler math for you");
+                }
+                if(levelAlpha.equals("levelG")){
+                    hintContent.setText("Time is magical always. Keep an eye on it anytime");
+                }
+                if(levelAlpha.equals("levelH")){
+                    hintContent.setText("Cliff is the oldest one of the 3 of them");
+                }
+                if(levelAlpha.equals("levelI")){
+                    hintContent.setText("Tamil New Year is also celebrated every year on the same day. Easiest clue could be (12)^2");
+                }
+                if(levelAlpha.equals("levelJ")){
+                    hintContent.setText("Subtract the direction blocks");
+                }
+                if(levelAlpha.equals("levelK")){
+                    hintContent.setText("Rotate your phone.");
+                }
+                if(levelAlpha.equals("levelL")){
+                    hintContent.setText("Third time you will subtract from 80, isn't it?");
+                }
+                if(levelAlpha.equals("levelM")){
+                    hintContent.setText("Look for the letter repeating twice");
+                }
+                if(levelAlpha.equals("levelN")){
+                    hintContent.setText("LHS = RHS.");
+                }
+                if(levelAlpha.equals("levelO")){
+                    hintContent.setText("I shine as bright as a Star");
+                }
+                if(levelAlpha.equals("levelP")){
+                    hintContent.setText("Charge Your Phone");
+                }
                 if(levelAlpha.equals("levelQ")){
                     hintContent.setText("Analyse the image Carefully");
+                }
+                if(levelAlpha.equals("levelR")){
+                    hintContent.setText("I'm like how the muscles are for the bones, used for enclosing");
                 }
                if(levelAlpha.equals("levelS")){
                    hintContent.setText("My name is a homophone to the synonym of a team and I provide better minerals than apple");
                }
+                if(levelAlpha.equals("levelT")){
+                    hintContent.setText("I have your books with me");
+                }
+                if(levelAlpha.equals("levelU")){
+                    hintContent.setText("I sound like a drug");
+                }
+                if(levelAlpha.equals("levelV")){
+                    hintContent.setText("kstkstkst is a 9 letter word. And the 8 letter word is in the question itself for an answer. Read it again...");
+                }
 
 
                 hintDialog.show();
