@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(Intent.ACTION_MAIN);
                                 intent.addCategory(Intent.CATEGORY_HOME);
+                                stopService(svc);
                                 startActivity(intent);
                             }
                         });
@@ -130,13 +131,19 @@ public class MainActivity extends AppCompatActivity {
         settingsDialog.show();
     }
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
+        stopService(svc);
         startActivity(intent);
+
+
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(svc);
+    }
 }
