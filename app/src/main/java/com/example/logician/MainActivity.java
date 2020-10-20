@@ -4,19 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Dialog settingsDialog;
     ImageView startGameBtn;
     ImageView exitGame;
+    Boolean isMusicPlaying;
+    Intent svc;
+    SharedPreferences mPrefs ; //add key
+    SharedPreferences.Editor prefsEditor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +34,19 @@ public class MainActivity extends AppCompatActivity {
         startGameBtn = (ImageView) findViewById(R.id.startGame);
         exitGame = (ImageView)findViewById(R.id.exit_game);
 
+        mPrefs = getSharedPreferences(GameActivity.MyPREFERENCES, Context.MODE_PRIVATE); //add key
+        prefsEditor = mPrefs.edit();
+
+        if(!mPrefs.contains("isMusicAllowed")){
+            prefsEditor.putBoolean("isMusicAllowed", true);
+            prefsEditor.commit();
+        }
+        isMusicPlaying = mPrefs.getBoolean("isMusicAllowed",false);
         listener();
-        Intent svc=new Intent(this, BackgroundSoundService.class);
-        startService(svc);
+        svc=new Intent(this, BackgroundSoundService.class);
+        if(isMusicPlaying){
+            startService(svc);
+        }
     }
     public void listener(){
         startGameBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,8 +85,41 @@ public class MainActivity extends AppCompatActivity {
     }
     public  void  showSettingsPopup(View v){
         ImageView close;
+        RelativeLayout musicBtn;
+        final TextView musicText;
+
         settingsDialog.setContentView(R.layout.settings_popup);
         close = settingsDialog.findViewById(R.id.txtClose);
+
+        musicBtn = (RelativeLayout)settingsDialog.findViewById(R.id.settingsLayoutBtn1);
+        musicText = (TextView)settingsDialog.findViewById(R.id.musicSettings);
+        if(isMusicPlaying){
+            musicText.setText("Music Off");
+        }
+        else {
+            musicText.setText("Music On");
+        }
+        musicBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isMusicPlaying){
+                    prefsEditor.putBoolean("isMusicAllowed", false);
+                    prefsEditor.apply();
+                    isMusicPlaying = mPrefs.getBoolean("isMusicAllowed",false);
+                    musicText.setText("Music On");
+                    stopService(svc);
+                }
+                else {
+                    prefsEditor.putBoolean("isMusicAllowed", true);
+                    prefsEditor.apply();
+                    isMusicPlaying = mPrefs.getBoolean("isMusicAllowed",true);
+                    musicText.setText("Music Off");
+                    startService(svc);
+
+                }
+
+            }
+        });
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override
