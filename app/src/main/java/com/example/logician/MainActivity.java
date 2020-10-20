@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         exitGame = (ImageView)findViewById(R.id.exit_game);
 
         listener();
+        Intent svc=new Intent(this, BackgroundSoundService.class);
+        startService(svc);
     }
     public void listener(){
         startGameBtn.setOnClickListener(new View.OnClickListener() {
@@ -84,4 +86,6 @@ public class MainActivity extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
     }
+
+
 }
