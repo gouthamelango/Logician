@@ -17,44 +17,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/play_button" />
 
-    <ImageView
-        android:id="@+id/exit_game"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/game_signIn"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786"
-        app:srcCompat="@drawable/exit" />
+        app:layout_constraintTop_toBottomOf="@+id/startGame"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="0dp">
 
-    <ImageView
-        android:id="@+id/gameSettings"
-        android:layout_width="86dp"
-        android:layout_height="89dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:onClick="showSettingsPopup"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.778"
-        app:srcCompat="@drawable/game_settings" />
+        <ImageView
+            android:id="@+id/exit_game"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/exit" />
 
-    <ImageView
-        android:id="@+id/game_signIn"
-        android:layout_width="91dp"
-        android:layout_height="93dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/gameSettings"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777"
-        app:srcCompat="@drawable/sign_in" />
+        <ImageView
+            android:id="@+id/gameSettings"
+            android:layout_width="86dp"
+            android:layout_height="75dp"
+            android:onClick="showSettingsPopup"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/game_signIn"
+            app:srcCompat="@drawable/game_settings" />
+
+        <ImageView
+            android:id="@+id/game_signIn"
+            android:layout_width="91dp"
+            android:layout_centerVertical="true"
+            android:layout_height="70dp"
+            android:layout_toRightOf="@+id/exit_game"
+            app:srcCompat="@drawable/sign_in" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView"
