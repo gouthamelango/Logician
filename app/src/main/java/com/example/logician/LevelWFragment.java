@@ -126,7 +126,7 @@ public class LevelWFragment extends Fragment {
                 SharedPreferences.Editor prefsEditor = mPrefs.edit();
                 prefsEditor.putBoolean("levelXLockValue", false);
                 prefsEditor.apply();
-                ((GameActivity)getActivity()).levelCleared();
+                //((GameActivity)getActivity()).levelCleared();
             }
         }.start();
     }

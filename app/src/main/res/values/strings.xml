@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="question">Question</string>
+    <string name="levelZ">In a hostel murder case, there are four suspects Michael, Nathan, Omar and Paul. Each of them makes a statement. Michael says that "I had gone to the theatre with Paul at the time of the murder". Nathan says that "I was playing cards with Michael at the time of the murder". Omar says that "Nathan didn't commit the murder". Paul says that "Omar is not the murderer". Assuming the only one of the above statements is false and that one of them is the murderer, who is the murderer? </string>
 </resources>

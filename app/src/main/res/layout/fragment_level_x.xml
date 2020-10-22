@@ -1,14 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LevelXFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="289dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:text="the math teacher"
+        android:textSize="14sp" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/optionA"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numbers"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="247dp"
+        android:layout_marginRight="247dp"
+        android:text="the coach"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/optionC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="291dp"
+        android:layout_marginEnd="247dp"
+        android:layout_marginRight="247dp"
+        android:text="the gardener"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/chewy"
+        android:gravity="center"
+        android:text="@string/question"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:fontFamily="@font/chewy"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="On the first day of the school year, a geography teacher was murdered. The police had 4 suspects, the gardener who was cutting bushes, the math teacher who was conducting the mid-year exam, the coach who was playing basketball, and the school principal who was in his office. Who is the murderer? "
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/numbers"
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/schoolcrime" />
+
+    <ImageView
+        android:id="@+id/inform"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:layout_below="@+id/optionC"
+        android:layout_marginTop="1dp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/optionB"
+        android:layout_width="159dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="211dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:text="the principal"
+        android:textSize="14sp" />
+
+
+
+
+</RelativeLayout>
